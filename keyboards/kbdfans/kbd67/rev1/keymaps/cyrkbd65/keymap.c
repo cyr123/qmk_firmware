@@ -2,15 +2,14 @@
 
 enum layers {
     _QWERTY,
-    _FUNC,
-    _NUM
+    _FUNC
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         
     /* Keymap (Base Layer) Default Layer
      * ,----------------------------------------------------------------.
-     * |ENu|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|   BS  |Del |
+     * |ESC|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|   BS  |Del |
      * |----------------------------------------------------------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  {|  }| Ent |PgUp|
      * |------------------------------------------------------.    |----|
@@ -22,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `------------------------------------------------'  `------------'
      */
     [_QWERTY] = LAYOUT_all(
-        LT(_NUM,KC_ESC),KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL, KC_BSPC, KC_BSPC, KC_DEL, 
+        KC_ESC ,KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL, KC_BSPC, KC_BSPC, KC_DEL, 
         KC_TAB,           KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,       KC_PGUP, 
         LT(_FUNC,KC_CAPS), KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,    KC_ENT,             KC_PGDN, 
         KC_LSFT, KC_NUBS,    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,         KC_UP,        MO(_FUNC), 
@@ -47,26 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          _______,     VLK_TOG, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,_______,_______,_______,_______,_______,      _______,      KC_END, 
          _______,_______,BL_TOGG, BL_DEC, BL_INC, BL_BRTG,_______,_______,_______,_______,_______,_______,_______,        KC_PGUP,_______, 
          KC_SLEP,RESET  ,_______,      LCA(KC_DEL),     LCA(KC_DEL),    LCA(KC_DEL),  LCA(KC_INS),KC_APP, _______,KC_HOME,KC_PGDN,KC_END),
-       
-    /* Keymap Numpad Layer
-     * ,----------------------------------------------------------------.
-     * |   |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  /|   |       |    |
-     * |----------------------------------------------------------------|
-     * |     |   |   |   |   |   |   |  4|  5|  6|  *|   |   |     |    |
-     * |------------------------------------------------------.    |----|
-     * |      |   |   |   |   |   |   |  1|  2|  3|  -|   |   |    |    |
-     * |----------------------------------------------------------------|
-     * |     |  |NLk|   |   |   |   |   |  0|   |   |  +|      |   |    |
-     * |----------------------------------------------------------------|
-     * |    |    |    |                       |    |    |  |   |   |    |
-     * `------------------------------------------------'  `------------'
-     */
-    [_NUM] = LAYOUT_all(
-        _______, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_7, KC_KP_8, KC_KP_9, KC_KP_0, KC_KP_SLASH, _______, _______, _______, _______, 
-        _______, _______, _______, _______, _______, _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_ASTERISK, _______, _______, _______, _______, 
-        _______, _______, _______, _______, _______, _______, _______, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_MINUS, _______, _______,             _______, 
-        _______, _______, KC_NLCK, _______, _______, _______, _______, _______, KC_KP_0, _______, _______, KC_KP_PLUS, _______,   _______, _______, 
-        _______, _______, _______,       _______,        _______,         _______,          _______, _______, XXXXXXX, _______, _______, _______),
+
     };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
